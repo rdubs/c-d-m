@@ -20,6 +20,8 @@
 
   If I were to anticipate more commands, I would use a switch statement instead of the current if/else control flow.
 
+  I added an index.js file as an entry point for the Babel loader in order to use es6 syntax.
+
 ## Tests
   A simple test file using mocha.js can be found in the test directory. I used a random subset of the data.json file for testing purposes. See testData.json.
 
