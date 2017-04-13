@@ -8,12 +8,16 @@ var companies = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
 
 var results;
 if (args[3] === 'locate') {
-  results = utils.getCompaniesByState(companies, process.argv[4]);
+  results = utils.getCompaniesByState(companies, args[4]);
 } else if (args[3] === 'find_before' || args[3] === 'find_after') {
   var year = parseInt(args[4]);
   results = utils.getCompaniesByYear(companies, year, args[3]);
-} else {
-
+} else if (args[3] === 'find_employees_in_range') {
+  var employeeRange = args[4];
+  results = utils.getCompaniesByEmployeeRange(companies, employeeRange);
+} else { //get by company type
+  var type = args[4];
+  results = utils.getCompaniesByType(companies, type);
 }
 
 //console output

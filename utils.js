@@ -20,6 +20,22 @@ exports.getCompaniesByYear = (companies, year, flag) => {
   });
 };
 
+exports.getCompaniesByEmployeeRange = (companies, range) => {
+  return companies.filter((company) => {
+    return company.full_time_employees === range;
+  }).map((company) => {
+    return company.company_name;
+  });
+};
+
+exports.getCompaniesByType = (companies, type) => {
+  return companies.filter((company) => {
+    return company.company_category === type;
+  }).map((company) => {
+    return company.company_name;
+  });
+};
+
 //Format company results. 10 per row.
 exports.format = (companies) => {
   var result = '';
