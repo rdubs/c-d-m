@@ -7,3 +7,31 @@ exports.getCompaniesByState = (companies, state) => {
     return company.company_name;
   });
 };
+
+exports.getCompaniesByYear = (companies, year, flag) => {
+  return companies.filter((company) => {
+    if (flag === 'find_before') {
+      return company.year_founded < year;
+    } else {
+      return company.year_founded > year;
+    }
+  }).map((company) => {
+    return company.company_name;
+  });
+};
+
+//Format company results. 10 per row.
+exports.format = (companies) => {
+  var result = '';
+  companies.forEach((company, i, companies) => {
+    if (i === companies.length - 1) { //dont add trailing comma for last result
+      result += company;
+    } else {
+      result += `${company}, `;
+    }
+    if ((i + 1) % 10 === 0) {
+      result += '\n';
+    }
+  });
+  return result + '\n';
+};
