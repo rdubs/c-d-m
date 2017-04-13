@@ -1,0 +1,17 @@
+{
+  "name": "cdm",
+  "version": "0.1.0",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "dependencies": {
+    "babel-register": "^6.24.1",
+    "chai": "2.2.0",
+    "mocha": "2.2.4"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1"
+  }
+}
